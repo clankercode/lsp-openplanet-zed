@@ -33,12 +33,15 @@ impl Openplanet {
             id,
             &zed::LanguageServerInstallationStatus::CheckingForUpdate,
         );
-        let result = self.download(id);
-        if result.is_err() {
-            zed::set_language_server_installation_status(
-                id,
-                &zed::LanguageServerInstallationStatus::None,
-            );
+        let (os, arch) = zed::current_platform();
+        let platform = policy::Platform::from_zed(os, arch)?;
+        let result = policy::download_with_cache(Path::new("."), &platform, || self.download(id));
+        zed::set_language_server_installation_status(
+            id,
+            &zed::LanguageServerInstallationStatus::None,
+        );
+        if let Ok(binary) = &result {
+            self.downloaded_binary = Some(binary.clone());
         }
         result
     }

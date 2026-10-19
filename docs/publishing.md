@@ -4,7 +4,7 @@ Repository: https://github.com/clankercode/lsp-openplanet-zed
 
 Zed registry ID: `openplanet`; initial version: `0.1.0`.
 
-Status: local verification complete; registry submission is recorded below when created. This repository does not claim to be listed until the registry pull request merges and Zed publishes it.
+Status: local verification and the actual registry packaging CLI passed. Registry submission requires a human author under the venue's [AI policy](https://github.com/zed-industries/extensions/blob/main/AI_POLICY.md): **"Autonomous agents are not allowed to be used for contributing to this project."** It also requires the contributor to write the PR body in their own words. No upstream PR has been opened by this agent. A prepared local registry checkout and exact handoff are supplied to the coordinating human. This repository does not claim to be listed until an approved registry PR merges and Zed publishes it.
 
 ## Release procedure
 

@@ -5,9 +5,11 @@ Verified on 2026-10-19, Linux x86-64. Rust `1.97.0`, Zed `1.24.2` (`fb69067729cb
 ## Automated checks
 
 - `cargo fmt --all -- --check`: PASS.
-- `cargo test --locked -j 2`: PASS, 10 tests (4 resolution/argument tests, 4 AngelScript/package tests, 2 TOML tests).
+- `cargo test --locked -j 2`: PASS, 12 tests (6 resolution/cache/argument tests, 4 AngelScript/package tests, 2 TOML tests).
 - `cargo clippy --locked --all-targets -j 2 -- -D warnings`: PASS.
 - `cargo build --locked --release --target wasm32-wasip2 -j 2`: PASS, real WASI preview-2 component.
+- `cargo +1.90 build --locked --release --target wasm32-wasip2 -j 2`: PASS on the registry Rust toolchain.
+- The exact registry `zed-extension` CLI at `9ee3c503a4bbbc6b4a0f8a789acca4871d773223` packaged the extension successfully. Its output lists languages, grammars and language servers and reports WASM API 0.7.0. Upstream manifest/license validators passed.
 - Both pinned C grammar parsers compiled using WASI SDK 34.0, the same command shape as Zed's extension builder.
 - Official GitHub `v0.8.0` release contains all six asset filenames covered by tests; the Linux archive has `./openplanet-lsp` at its root.
 
@@ -33,6 +35,8 @@ Verified in the actual editor:
 - `ordinary.toml` stayed **Unknown** in the clean profile and Zed suggested installing its normal TOML extension. This proves the extension does not claim every TOML file. The fixture is deliberately retained for repeatability.
 - With both `~/.local/bin` and `~/.cargo/bin` removed from this session's PATH and no binary override, Zed downloaded the official Linux x86-64 release through the extension API to its work directory. It launched that binary with `--lsp`, and the same two real errors appeared. The downloaded binary reports `openplanet-lsp 0.8.0`.
 
+Independent read-only review found the offline-restart cache issue; the fix persists only a successful install path, validates it against the current platform, and falls back to it on release-service failure. Missing/corrupted cache entries retain the original download error. The startup test uses a fresh resolver call and a failed lookup.
+
 The recorder only transported actual JSON-RPC messages; it did not synthesize responses. [Sanitized LSP evidence](lsp-evidence.json) contains the relevant initialize, didOpen, and publishDiagnostics data. [Startup evidence](zed-startup-evidence.txt) records selected binary paths and arguments. [Build hashes](build-sha256.txt) identify the component, grammar modules, and downloaded server used for the screenshot.
 
 ## Screenshot review
@@ -46,6 +50,6 @@ Visual inspection of the full image and a zoomed text crop: readable type, visib
 - Linux x86-64 was the only actual GUI/download platform exercised. macOS, Windows, Linux ARM64, and their archives are covered by target/name tests, not runtime tests. Linux musl is not an official download target.
 - Interactive dev-install file picker did not work in the headless environment; the native extension host load did work. No claim that Zed was installed at `/usr/bin/zed`.
 - No Openplanet game instance was launched. The fixture intentionally contains errors; it demonstrates editor integration, not game compilation.
-- Completion, hover, references, rename, multiple-plugin workspace routing, and offline cached startup after editor restart were not individually exercised in the GUI. They use the upstream server and Zed LSP support.
+- Completion, hover, references, rename, multiple-plugin workspace routing, were not individually exercised in the GUI. Offline cached startup has a regression test that fails with the original download-only behavior and passes with persistent cache fallback; actual network-denied GUI startup is not yet claimed. They use the upstream server and Zed LSP support.
 - No claim of exhaustive AngelScript grammar coverage. The maintained grammar may recover imperfectly on Openplanet-specific syntax; semantic diagnostics belong to openplanet-lsp.
 - GitHub registry review/acceptance is separate from successful local validation. See publishing status.

@@ -12,7 +12,7 @@ Registry publication is submitted separately; see [publishing status](docs/publi
 
 Open your plugin directory, containing `info.toml` and your `.as` sources. Trust the project when Zed asks, since Restricted Mode prevents language servers from running. The server discovers `info.toml` and `.openplanet-lsp.toml`; opening the plugin root provides a predictable workspace root. Parent workspaces containing several plugin roots work through the server's normal discovery. For a single file, open its containing directory.
 
-The extension finds `openplanet-lsp` on the workspace PATH, or downloads the latest stable official release through Zed's API. Download targets are Linux GNU, macOS, and Windows, each on x86-64 and ARM64. Only Linux x86-64 has been exercised live; the other targets have asset-mapping tests. The server always starts with `--lsp` in the extension-managed path. Alternatively install it yourself with `cargo install openplanet-lsp` or `npm install -g openplanet-lsp`.
+The extension finds `openplanet-lsp` on the workspace PATH, or downloads the latest stable official release through Zed's API. After a successful installation, a persisted cache permits a fresh session to start if the release service is unavailable. Download targets are Linux GNU, macOS, and Windows, each on x86-64 and ARM64. Only Linux x86-64 has been exercised live; the other targets have asset-mapping tests. The server always starts with `--lsp` in the extension-managed path. Alternatively install it yourself with `cargo install openplanet-lsp` or `npm install -g openplanet-lsp`.
 
 ## Configure
 

@@ -68,6 +68,47 @@ pub(crate) fn server_args(extra: Option<&[String]>) -> Vec<String> {
     args
 }
 
+/// Retain the last *successful* install for a fresh extension instance when
+/// GitHub is unavailable. Never treat a partial extraction as a cache entry.
+pub(crate) fn download_with_cache(
+    work_directory: &std::path::Path,
+    platform: &Platform,
+    download: impl FnOnce() -> Result<String>,
+) -> Result<String> {
+    let marker = work_directory.join(format!("last-successful-{}.txt", platform.target));
+    match download() {
+        Ok(binary) => {
+            // Cache persistence is best effort; a read-only cache must not stop
+            // an otherwise successful server launch.
+            let _ = std::fs::write(marker, &binary);
+            Ok(binary)
+        }
+        Err(download_error) => {
+            if let Ok(binary) = std::fs::read_to_string(marker)
+                && valid_cached_path(platform, &binary)
+                && work_directory.join(&binary).is_file()
+            {
+                return Ok(binary);
+            }
+            Err(download_error)
+        }
+    }
+}
+
+fn valid_cached_path(platform: &Platform, binary: &str) -> bool {
+    // The marker is data, not an arbitrary path supplied to the host.
+    let Some(directory) = binary.strip_suffix(&format!("/{}", platform.executable())) else {
+        return false;
+    };
+    let Some(version) = directory
+        .strip_prefix("openplanet-lsp-")
+        .and_then(|value| value.strip_suffix(&format!("-{}", platform.target)))
+    else {
+        return false;
+    };
+    platform.archive_name(version).is_ok()
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -165,5 +206,53 @@ mod tests {
             ])),
             ["--lsp", "--log-level", "debug"]
         );
+    }
+
+    #[test]
+    fn fresh_resolver_uses_last_successful_install_when_release_lookup_fails() {
+        let root =
+            std::env::temp_dir().join(format!("openplanet-zed-cache-{}", std::process::id()));
+        std::fs::create_dir_all(&root).unwrap();
+        for (os, arch) in [
+            (Os::Linux, Architecture::X8664),
+            (Os::Windows, Architecture::Aarch64),
+        ] {
+            let platform = Platform::from_zed(os, arch).unwrap();
+            let binary = format!(
+                "openplanet-lsp-v0.8.0-{}/{}",
+                platform.target,
+                platform.executable()
+            );
+            std::fs::create_dir_all(root.join(&binary).parent().unwrap()).unwrap();
+            std::fs::write(root.join(&binary), "completed download").unwrap();
+            assert_eq!(
+                download_with_cache(&root, &platform, || Ok(binary.clone())).unwrap(),
+                binary
+            );
+            // A new call has no state from the first invocation.
+            assert_eq!(
+                download_with_cache(&root, &platform, || Err("offline".into())).unwrap(),
+                binary
+            );
+            std::fs::remove_file(root.join(&binary)).unwrap();
+            assert_eq!(
+                download_with_cache(&root, &platform, || Err("offline".into())).unwrap_err(),
+                "offline"
+            );
+        }
+        std::fs::remove_dir_all(root).unwrap();
+    }
+
+    #[test]
+    fn cached_marker_rejects_paths_outside_the_expected_platform_install() {
+        let platform = Platform::from_zed(Os::Linux, Architecture::X8664).unwrap();
+        for path in [
+            "/bin/openplanet-lsp",
+            "../openplanet-lsp",
+            "openplanet-lsp-v../x86_64-unknown-linux-gnu/openplanet-lsp",
+            "openplanet-lsp-v0.8.0-aarch64-unknown-linux-gnu/openplanet-lsp",
+        ] {
+            assert!(!valid_cached_path(&platform, path), "accepted {path}");
+        }
     }
 }
