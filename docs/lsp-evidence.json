@@ -1,0 +1,426 @@
+[
+  {
+    "direction": "client",
+    "method": "initialize",
+    "rootUri": "file:///home/xertrov/src/lsp-openplanet-zed/fixtures/plugin",
+    "initializationOptions": null
+  },
+  {
+    "direction": "server",
+    "method": "textDocument/publishDiagnostics",
+    "diagnostics": [],
+    "uri": "file:///home/xertrov/src/lsp-openplanet-zed/fixtures/plugin/info.toml"
+  },
+  {
+    "direction": "client",
+    "method": "textDocument/didOpen",
+    "uri": "file:///home/xertrov/src/lsp-openplanet-zed/fixtures/plugin/Main.as",
+    "languageId": "angelscript"
+  },
+  {
+    "direction": "server",
+    "method": "textDocument/publishDiagnostics",
+    "diagnostics": [
+      {
+        "message": "unknown type `MissingType`",
+        "range": {
+          "end": {
+            "character": 15,
+            "line": 4
+          },
+          "start": {
+            "character": 4,
+            "line": 4
+          }
+        },
+        "severity": 1,
+        "source": "openplanet-lsp"
+      },
+      {
+        "message": "undefined identifier `missing_function`",
+        "range": {
+          "end": {
+            "character": 20,
+            "line": 5
+          },
+          "start": {
+            "character": 4,
+            "line": 5
+          }
+        },
+        "severity": 1,
+        "source": "openplanet-lsp"
+      },
+      {
+        "code": "unused-declaration",
+        "data": {
+          "unusedKind": "local variable"
+        },
+        "message": "a local variable `value` is never used (suppress with a leading `_` or a trailing `// lsp: ignore unused` comment)",
+        "range": {
+          "end": {
+            "character": 21,
+            "line": 4
+          },
+          "start": {
+            "character": 16,
+            "line": 4
+          }
+        },
+        "severity": 3,
+        "source": "openplanet-lsp",
+        "tags": [
+          1
+        ]
+      }
+    ],
+    "uri": "file:///home/xertrov/src/lsp-openplanet-zed/fixtures/plugin/Main.as"
+  },
+  {
+    "direction": "server",
+    "method": "textDocument/publishDiagnostics",
+    "diagnostics": [],
+    "uri": "file:///home/xertrov/src/lsp-openplanet-zed/fixtures/plugin/info.toml"
+  },
+  {
+    "direction": "client",
+    "method": "initialize",
+    "rootUri": "file:///home/xertrov/src/lsp-openplanet-zed/fixtures/plugin",
+    "initializationOptions": null
+  },
+  {
+    "direction": "client",
+    "method": "textDocument/didOpen",
+    "uri": "file:///home/xertrov/src/lsp-openplanet-zed/fixtures/plugin/Main.as",
+    "languageId": "angelscript"
+  },
+  {
+    "direction": "server",
+    "method": "textDocument/publishDiagnostics",
+    "diagnostics": [],
+    "uri": "file:///home/xertrov/src/lsp-openplanet-zed/fixtures/plugin/info.toml"
+  },
+  {
+    "direction": "server",
+    "method": "textDocument/publishDiagnostics",
+    "diagnostics": [
+      {
+        "message": "unknown type `MissingType`",
+        "range": {
+          "end": {
+            "character": 15,
+            "line": 4
+          },
+          "start": {
+            "character": 4,
+            "line": 4
+          }
+        },
+        "severity": 1,
+        "source": "openplanet-lsp"
+      },
+      {
+        "message": "undefined identifier `missing_function`",
+        "range": {
+          "end": {
+            "character": 20,
+            "line": 5
+          },
+          "start": {
+            "character": 4,
+            "line": 5
+          }
+        },
+        "severity": 1,
+        "source": "openplanet-lsp"
+      },
+      {
+        "code": "unused-declaration",
+        "data": {
+          "unusedKind": "local variable"
+        },
+        "message": "a local variable `value` is never used (suppress with a leading `_` or a trailing `// lsp: ignore unused` comment)",
+        "range": {
+          "end": {
+            "character": 21,
+            "line": 4
+          },
+          "start": {
+            "character": 16,
+            "line": 4
+          }
+        },
+        "severity": 3,
+        "source": "openplanet-lsp",
+        "tags": [
+          1
+        ]
+      }
+    ],
+    "uri": "file:///home/xertrov/src/lsp-openplanet-zed/fixtures/plugin/Main.as"
+  },
+  {
+    "direction": "server",
+    "method": "textDocument/publishDiagnostics",
+    "diagnostics": [],
+    "uri": "file:///home/xertrov/src/lsp-openplanet-zed/fixtures/plugin/info.toml"
+  },
+  {
+    "direction": "client",
+    "method": "initialize",
+    "rootUri": "file:///home/xertrov/src/lsp-openplanet-zed/fixtures/plugin",
+    "initializationOptions": null
+  },
+  {
+    "direction": "server",
+    "method": "textDocument/publishDiagnostics",
+    "diagnostics": [],
+    "uri": "file:///home/xertrov/src/lsp-openplanet-zed/fixtures/plugin/info.toml"
+  },
+  {
+    "direction": "client",
+    "method": "textDocument/didOpen",
+    "uri": "file:///home/xertrov/src/lsp-openplanet-zed/fixtures/plugin/Main.as",
+    "languageId": "angelscript"
+  },
+  {
+    "direction": "server",
+    "method": "textDocument/publishDiagnostics",
+    "diagnostics": [
+      {
+        "message": "unknown type `MissingType`",
+        "range": {
+          "end": {
+            "character": 15,
+            "line": 4
+          },
+          "start": {
+            "character": 4,
+            "line": 4
+          }
+        },
+        "severity": 1,
+        "source": "openplanet-lsp"
+      },
+      {
+        "message": "undefined identifier `missing_function`",
+        "range": {
+          "end": {
+            "character": 20,
+            "line": 5
+          },
+          "start": {
+            "character": 4,
+            "line": 5
+          }
+        },
+        "severity": 1,
+        "source": "openplanet-lsp"
+      },
+      {
+        "code": "unused-declaration",
+        "data": {
+          "unusedKind": "local variable"
+        },
+        "message": "a local variable `value` is never used (suppress with a leading `_` or a trailing `// lsp: ignore unused` comment)",
+        "range": {
+          "end": {
+            "character": 21,
+            "line": 4
+          },
+          "start": {
+            "character": 16,
+            "line": 4
+          }
+        },
+        "severity": 3,
+        "source": "openplanet-lsp",
+        "tags": [
+          1
+        ]
+      }
+    ],
+    "uri": "file:///home/xertrov/src/lsp-openplanet-zed/fixtures/plugin/Main.as"
+  },
+  {
+    "direction": "server",
+    "method": "textDocument/publishDiagnostics",
+    "diagnostics": [],
+    "uri": "file:///home/xertrov/src/lsp-openplanet-zed/fixtures/plugin/info.toml"
+  },
+  {
+    "direction": "client",
+    "method": "textDocument/didOpen",
+    "uri": "file:///home/xertrov/src/lsp-openplanet-zed/fixtures/plugin/info.toml",
+    "languageId": "openplanet manifest"
+  },
+  {
+    "direction": "server",
+    "method": "textDocument/publishDiagnostics",
+    "diagnostics": [],
+    "uri": "file:///home/xertrov/src/lsp-openplanet-zed/fixtures/plugin/info.toml"
+  },
+  {
+    "direction": "client",
+    "method": "initialize",
+    "rootUri": "file:///home/xertrov/src/lsp-openplanet-zed/fixtures/plugin",
+    "initializationOptions": {
+      "unused": false
+    }
+  },
+  {
+    "direction": "server",
+    "method": "textDocument/publishDiagnostics",
+    "diagnostics": [
+      {
+        "code": "manifest",
+        "message": "TOML parse error: TOML parse error at line 10, column 12\n   |\n10 | broken = [\n   |            ^\ninvalid array\nexpected `]`\n",
+        "range": {
+          "end": {
+            "character": 0,
+            "line": 10
+          },
+          "start": {
+            "character": 0,
+            "line": 10
+          }
+        },
+        "severity": 1,
+        "source": "openplanet-lsp"
+      }
+    ],
+    "uri": "file:///home/xertrov/src/lsp-openplanet-zed/fixtures/plugin/info.toml"
+  },
+  {
+    "direction": "client",
+    "method": "initialize",
+    "rootUri": "file:///home/xertrov/src/lsp-openplanet-zed/fixtures/plugin",
+    "initializationOptions": {
+      "unused": false
+    }
+  },
+  {
+    "direction": "client",
+    "method": "textDocument/didOpen",
+    "uri": "file:///home/xertrov/src/lsp-openplanet-zed/fixtures/plugin/Main.as",
+    "languageId": "angelscript"
+  },
+  {
+    "direction": "client",
+    "method": "textDocument/didOpen",
+    "uri": "file:///home/xertrov/src/lsp-openplanet-zed/fixtures/plugin/info.toml",
+    "languageId": "openplanet manifest"
+  },
+  {
+    "direction": "server",
+    "method": "textDocument/publishDiagnostics",
+    "diagnostics": [
+      {
+        "code": "manifest",
+        "message": "TOML parse error: TOML parse error at line 10, column 12\n   |\n10 | broken = [\n   |            ^\ninvalid array\nexpected `]`\n",
+        "range": {
+          "end": {
+            "character": 0,
+            "line": 10
+          },
+          "start": {
+            "character": 0,
+            "line": 10
+          }
+        },
+        "severity": 1,
+        "source": "openplanet-lsp"
+      }
+    ],
+    "uri": "file:///home/xertrov/src/lsp-openplanet-zed/fixtures/plugin/info.toml"
+  },
+  {
+    "direction": "server",
+    "method": "textDocument/publishDiagnostics",
+    "diagnostics": [
+      {
+        "message": "unknown type `MissingType`",
+        "range": {
+          "end": {
+            "character": 15,
+            "line": 4
+          },
+          "start": {
+            "character": 4,
+            "line": 4
+          }
+        },
+        "severity": 1,
+        "source": "openplanet-lsp"
+      },
+      {
+        "message": "undefined identifier `missing_function`",
+        "range": {
+          "end": {
+            "character": 20,
+            "line": 5
+          },
+          "start": {
+            "character": 4,
+            "line": 5
+          }
+        },
+        "severity": 1,
+        "source": "openplanet-lsp"
+      }
+    ],
+    "uri": "file:///home/xertrov/src/lsp-openplanet-zed/fixtures/plugin/Main.as"
+  },
+  {
+    "direction": "server",
+    "method": "textDocument/publishDiagnostics",
+    "diagnostics": [
+      {
+        "code": "manifest",
+        "message": "TOML parse error: TOML parse error at line 10, column 12\n   |\n10 | broken = [\n   |            ^\ninvalid array\nexpected `]`\n",
+        "range": {
+          "end": {
+            "character": 0,
+            "line": 10
+          },
+          "start": {
+            "character": 0,
+            "line": 10
+          }
+        },
+        "severity": 1,
+        "source": "openplanet-lsp"
+      }
+    ],
+    "uri": "file:///home/xertrov/src/lsp-openplanet-zed/fixtures/plugin/info.toml"
+  },
+  {
+    "direction": "server",
+    "method": "textDocument/publishDiagnostics",
+    "diagnostics": [
+      {
+        "code": "manifest",
+        "message": "TOML parse error: TOML parse error at line 10, column 12\n   |\n10 | broken = [\n   |            ^\ninvalid array\nexpected `]`\n",
+        "range": {
+          "end": {
+            "character": 0,
+            "line": 10
+          },
+          "start": {
+            "character": 0,
+            "line": 10
+          }
+        },
+        "severity": 1,
+        "source": "openplanet-lsp"
+      }
+    ],
+    "uri": "file:///home/xertrov/src/lsp-openplanet-zed/fixtures/plugin/info.toml"
+  },
+  {
+    "direction": "server",
+    "method": "textDocument/publishDiagnostics",
+    "diagnostics": [],
+    "uri": "file:///home/xertrov/src/lsp-openplanet-zed/fixtures/plugin/info.toml"
+  }
+]

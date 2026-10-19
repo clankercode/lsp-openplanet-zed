@@ -1,0 +1,16 @@
+2026-10-19T18:22:24+11:00 INFO  [extension_host] rebuilt extension index in 11.629208ms
+2026-10-19T18:22:28+11:00 INFO  [extension_host] rebuilt extension index in 7.585547ms
+2026-10-19T18:26:50+11:00 INFO  [extension_host] rebuilt extension index in 20.509949ms
+2026-10-19T18:26:51+11:00 INFO  [lsp] starting language server process. binary path: "/home/xertrov/.local/bin/openplanet-lsp", working directory: "/home/xertrov/src/lsp-openplanet-zed/fixtures/plugin", args: ["--lsp"]
+2026-10-19T18:26:53+11:00 INFO  [extension_host] rebuilt extension index in 16.65121ms
+2026-10-19T18:27:33+11:00 INFO  [lsp] starting language server process. binary path: "/home/xertrov/.local/bin/openplanet-lsp", working directory: "/home/xertrov/src/lsp-openplanet-zed/fixtures/plugin", args: ["--lsp"]
+2026-10-19T18:27:52+11:00 INFO  [lsp] starting language server process. binary path: "/tmp/zed-openplanet-session/data/zed/languages/package-version-server/package-version-server-v0.0.10", working directory: "/tmp/zed-openplanet-session/data/zed/config", args: []
+2026-10-19T18:28:03+11:00 INFO  [lsp] starting language server process. binary path: "/usr/bin/node", working directory: "/tmp/zed-openplanet-session/data/zed/config", args: ["/tmp/zed-openplanet-session/data/zed/languages/json-language-server/node_modules/vscode-langservers-extracted/bin/vscode-json-language-server", "--stdio"]
+2026-10-19T18:28:09+11:00 INFO  [lsp] starting language server process. binary path: "/tmp/zed-openplanet-session/record-lsp.py", working directory: "/home/xertrov/src/lsp-openplanet-zed/fixtures/plugin", args: []
+2026-10-19T18:28:11+11:00 INFO  [lsp] starting language server process. binary path: "/tmp/zed-openplanet-session/record-lsp.py", working directory: "/home/xertrov/src/lsp-openplanet-zed/fixtures/plugin", args: []
+2026-10-19T18:28:37+11:00 INFO  [lsp] starting language server process. binary path: "/tmp/zed-openplanet-session/record-lsp.py", working directory: "/home/xertrov/src/lsp-openplanet-zed/fixtures/plugin", args: ["--lsp"]
+2026-10-19T18:29:44+11:00 INFO  [lsp] starting language server process. binary path: "/tmp/zed-openplanet-session/record-lsp.py", working directory: "/home/xertrov/src/lsp-openplanet-zed/fixtures/plugin", args: ["--lsp"]
+2026-10-19T18:29:46+11:00 INFO  [lsp] starting language server process. binary path: "/tmp/zed-openplanet-session/record-lsp.py", working directory: "/home/xertrov/src/lsp-openplanet-zed/fixtures/plugin", args: ["--lsp"]
+2026-10-19T18:30:04+11:00 INFO  [lsp] starting language server process. binary path: "/home/xertrov/.local/bin/openplanet-lsp", working directory: "/home/xertrov/src/lsp-openplanet-zed/fixtures/plugin", args: ["--lsp"]
+2026-10-19T18:30:43+11:00 INFO  [lsp] starting language server process. binary path: "/home/xertrov/.cargo/bin/openplanet-lsp", working directory: "/home/xertrov/src/lsp-openplanet-zed/fixtures/plugin", args: ["--lsp"]
+2026-10-19T18:31:12+11:00 INFO  [lsp] starting language server process. binary path: "/tmp/zed-openplanet-session/data/zed/extensions/work/openplanet/openplanet-lsp-v0.8.0-x86_64-unknown-linux-gnu/openplanet-lsp", working directory: "/home/xertrov/src/lsp-openplanet-zed/fixtures/plugin", args: ["--lsp"]
