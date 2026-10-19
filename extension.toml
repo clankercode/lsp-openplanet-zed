@@ -6,6 +6,10 @@ authors = ["clankercode"]
 description = "AngelScript and Openplanet plugin development with openplanet-lsp."
 repository = "https://github.com/clankercode/lsp-openplanet-zed"
 
+[lib]
+kind = "Rust"
+version = "0.7.0"
+
 [language_servers.openplanet-lsp]
 name = "Openplanet LSP"
 languages = ["AngelScript", "Openplanet Manifest"]

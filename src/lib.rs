@@ -24,10 +24,10 @@ impl Openplanet {
         if let Some(path) = worktree.which("openplanet-lsp") {
             return Ok(path);
         }
-        if let Some(path) = &self.downloaded_binary {
-            if Path::new(path).is_file() {
-                return Ok(path.clone());
-            }
+        if let Some(path) = &self.downloaded_binary
+            && Path::new(path).is_file()
+        {
+            return Ok(path.clone());
         }
         zed::set_language_server_installation_status(
             id,
