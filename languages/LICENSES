@@ -1,3 +1,7 @@
+This file is a source index only. The Zed registry packager copies language
+directories and drops a loose languages/LICENSES file. The copies that ship are
+languages/angelscript/LICENSES and languages/openplanet_manifest/LICENSES.
+
 Openplanet Zed extension license notices
 ========================================
 

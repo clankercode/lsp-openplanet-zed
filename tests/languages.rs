@@ -117,3 +117,33 @@ fn extension_and_language_contracts_are_consistent() {
     assert!(Path::new("UNLICENSE").is_file());
     assert!(fs::read_to_string("LICENSE-CC0").unwrap().len() > 6000);
 }
+
+#[test]
+fn each_shipped_language_directory_contains_its_complete_notices() {
+    let unlicense = fs::read_to_string("UNLICENSE").unwrap();
+    let cc0 = fs::read_to_string("LICENSE-CC0").unwrap();
+    let bsd = fs::read_to_string("docs/grammar-LICENSE-BSD-3-Clause").unwrap();
+    let mit = fs::read_to_string("docs/toml-LICENSE-MIT").unwrap();
+    let angelscript = fs::read_to_string("languages/angelscript/LICENSES").unwrap();
+    let manifest = fs::read_to_string("languages/openplanet_manifest/LICENSES").unwrap();
+    for notice in [&unlicense, &cc0, &bsd] {
+        assert!(
+            angelscript.contains(notice.trim()),
+            "angelscript package notice is missing a required license"
+        );
+    }
+    for notice in [&unlicense, &cc0, &mit] {
+        assert!(
+            manifest.contains(notice.trim()),
+            "manifest package notice is missing a required license"
+        );
+    }
+    assert!(
+        !manifest.contains(bsd.trim()),
+        "TOML language dir must not substitute the AngelScript BSD notice"
+    );
+    assert!(
+        !angelscript.contains("Copyright (c) Ika"),
+        "AngelScript language dir must not substitute the TOML MIT notice"
+    );
+}

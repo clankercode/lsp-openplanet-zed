@@ -2,3 +2,6 @@
 /extension.wasm
 /grammars/
 *.log
+
+__pycache__/
+*.pyc
