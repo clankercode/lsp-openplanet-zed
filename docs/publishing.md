@@ -32,3 +32,18 @@ Primary references checked 2026-10-19:
 - https://zed.dev/docs/extensions/publishing/license-requirements
 - https://zed.dev/docs/extensions/publishing/publishing-guide
 - https://zed.dev/docs/extensions/developing-extensions
+
+## Prepared human handoff
+
+A local branch `add-openplanet` in `/tmp/zed-openplanet-registry` contains the sorted registry entry and HTTPS submodule. Its manifest, license, extension ID/version and submodule-location validators pass. The exact registry packaging CLI has also produced `/tmp/zed-openplanet-package/archive.tar.gz` and `manifest.json` successfully. No registry fork, upstream comment or PR was created by the agent.
+
+To finish, a human who has reviewed and understands this extension can:
+
+```sh
+cd /tmp/zed-openplanet-registry
+gh repo fork zed-industries/extensions --clone=false --remote=true
+# If needed, add the fork URL as a separate remote first.
+git push <your-fork-remote> add-openplanet
+```
+
+Then open a PR against `zed-industries/extensions:main`, writing its title/body in your own words. Explain that this adds AngelScript/Openplanet language support, link the public extension repository, identify the submodule commit, and describe the verified Linux GUI/download behavior and untested operating systems. Do not copy agent prose into maintainer communication; their policy requires human-authored explanations. If this temporary checkout is no longer present, use the complete release procedure above.

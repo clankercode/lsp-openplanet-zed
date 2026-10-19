@@ -1,0 +1,1 @@
+{"name":"Openplanet","version":"0.1.0","description":"AngelScript and Openplanet plugin development with openplanet-lsp.","authors":["clankercode"],"repository":"https://github.com/clankercode/lsp-openplanet-zed","schema_version":1,"wasm_api_version":"0.7.0","provides":["languages","grammars","language-servers"]}
