@@ -21,3 +21,15 @@ fn manifest_queries_compile_and_parse_real_toml() {
             > 5
     );
 }
+
+#[test]
+fn grammar_export_name_matches_upstream_parser() {
+    let manifest: toml::Value =
+        toml::from_str(&fs::read_to_string("extension.toml").unwrap()).unwrap();
+    // Zed invokes tree_sitter_{grammar_name}; upstream exports tree_sitter_toml.
+    assert!(manifest["grammars"].get("toml").is_some());
+    let config: toml::Value =
+        toml::from_str(&fs::read_to_string("languages/openplanet_manifest/config.toml").unwrap())
+            .unwrap();
+    assert_eq!(config["grammar"].as_str(), Some("toml"));
+}

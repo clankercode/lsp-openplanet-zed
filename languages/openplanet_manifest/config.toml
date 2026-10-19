@@ -1,5 +1,5 @@
 name = "Openplanet Manifest"
-grammar = "openplanet_toml"
+grammar = "toml"
 path_suffixes = ["info.toml"]
 line_comments = ["# "]
 autoclose_before = ",]}"

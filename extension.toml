@@ -14,6 +14,6 @@ languages = ["AngelScript", "Openplanet Manifest"]
 repository = "https://github.com/Relrin/tree-sitter-angelscript"
 commit = "4595504ef9ae3fc7d597a14fd09d9aebc5eaf8e6"
 
-[grammars.openplanet_toml]
+[grammars.toml]
 repository = "https://github.com/tree-sitter/tree-sitter-toml"
 commit = "342d9be207c2dba869b9967124c679b5e6fd0ebe"
