@@ -22,7 +22,7 @@ Status: local verification and the actual registry packaging CLI passed. Registr
 5. Run `pnpm sort-extensions`, run registry checks, push a dedicated branch, and open one PR for this extension. Include the exact commit, features, verification limits, and screenshot URL. The registry permits at most three open submissions per author.
 6. Respond to maintainer feedback within three weeks. Acceptance and publishing are maintainer-controlled.
 
-The full Unlicense is present as both `UNLICENSE` and `LICENSE` so the registry's prefix-based license scanner recognizes the accepted Unlicense option. `LICENSE-CC0` preserves the alternative CC0 grant. Grammar notices are in `docs/` and are retained independently.
+The full Unlicense is present as both `UNLICENSE` and `LICENSE` so the registry's prefix-based license scanner recognizes the accepted Unlicense option. `LICENSE-CC0` preserves the alternative CC0 grant. The complete first-party and upstream notices are retained in `docs/` and copied into `languages/LICENSES`; the latter is inside the native packager's shipped language payload, so registry archives carry the BSD-3-Clause AngelScript and MIT TOML notices alongside the first-party grants. Run `python3 scripts/check-package-notices.py /path/to/archive.tar.gz` against every candidate archive. The fixed candidate archive was checked at SHA-256 `cc71442b043dda9e143818b2a1f176eb94660fe3fdeda47f992cbf521fc74399`.
 
 For updates, bump `Cargo.toml` and `extension.toml` together, regenerate Cargo.lock, validate, push, then submit a registry PR updating this extension's submodule commit and version.
 

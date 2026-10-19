@@ -10,6 +10,7 @@ Verified on 2026-10-19, Linux x86-64. Rust `1.97.0`, Zed `1.24.2` (`fb69067729cb
 - `cargo build --locked --release --target wasm32-wasip2 -j 2`: PASS, real WASI preview-2 component.
 - `cargo +1.90 build --locked --release --target wasm32-wasip2 -j 2`: PASS on the registry Rust toolchain.
 - The exact registry `zed-extension` CLI at `9ee3c503a4bbbc6b4a0f8a789acca4871d773223` packaged the extension successfully. Its output lists languages, grammars and language servers and reports WASM API 0.7.0. Upstream manifest/license validators passed.
+- The package artifact regression check `scripts/check-package-notices.py` passes against `/tmp/zed-openplanet-final-package/archive.tar.gz` (SHA-256 `cc71442b043dda9e143818b2a1f176eb94660fe3fdeda47f992cbf521fc74399`). It requires `languages/LICENSES` plus the complete Unlicense, CC0, BSD-3-Clause, and MIT texts. The archive preserves the exact native packager file layout while adding the package-supported license bundle; this protects notices from the native packager's exclusion of `docs/` and root license files.
 - Both pinned C grammar parsers compiled using WASI SDK 34.0, the same command shape as Zed's extension builder.
 - Official GitHub `v0.8.0` release contains all six asset filenames covered by tests; the Linux archive has `./openplanet-lsp` at its root.
 
