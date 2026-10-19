@@ -1,0 +1,11 @@
+name = "AngelScript"
+grammar = "angelscript"
+path_suffixes = ["as"]
+line_comments = ["// "]
+block_comment = ["/*", "*/"]
+autoclose_before = ";:.,=}])>"
+brackets = [
+  { start = "{", end = "}", close = true, newline = true },
+  { start = "[", end = "]", close = true, newline = false },
+  { start = "(", end = ")", close = true, newline = false },
+]

@@ -1,0 +1,20 @@
+[package]
+name = "openplanet-zed"
+version = "0.1.0"
+edition = "2024"
+license = "Unlicense OR CC0-1.0"
+repository = "https://github.com/clankercode/lsp-openplanet-zed"
+publish = false
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+zed_extension_api = "0.7.0"
+
+[dev-dependencies]
+tree-sitter = "0.26"
+tree-sitter-angelscript = { git = "https://github.com/Relrin/tree-sitter-angelscript", rev = "4595504ef9ae3fc7d597a14fd09d9aebc5eaf8e6" }
+toml = "0.9"
+tree-sitter-020 = { package = "tree-sitter", version = "0.20" }
+tree-sitter-toml = { git = "https://github.com/tree-sitter/tree-sitter-toml", rev = "342d9be207c2dba869b9967124c679b5e6fd0ebe" }

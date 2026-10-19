@@ -1,0 +1,9 @@
+name = "Openplanet Manifest"
+grammar = "openplanet_toml"
+path_suffixes = ["info.toml"]
+line_comments = ["# "]
+autoclose_before = ",]}"
+brackets = [
+  { start = "{", end = "}", close = true, newline = true },
+  { start = "[", end = "]", close = true, newline = false },
+]

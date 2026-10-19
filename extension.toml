@@ -1,0 +1,19 @@
+id = "openplanet"
+name = "Openplanet"
+version = "0.1.0"
+schema_version = 1
+authors = ["clankercode"]
+description = "AngelScript and Openplanet plugin development with openplanet-lsp."
+repository = "https://github.com/clankercode/lsp-openplanet-zed"
+
+[language_servers.openplanet-lsp]
+name = "Openplanet LSP"
+languages = ["AngelScript", "Openplanet Manifest"]
+
+[grammars.angelscript]
+repository = "https://github.com/Relrin/tree-sitter-angelscript"
+commit = "4595504ef9ae3fc7d597a14fd09d9aebc5eaf8e6"
+
+[grammars.openplanet_toml]
+repository = "https://github.com/tree-sitter/tree-sitter-toml"
+commit = "342d9be207c2dba869b9967124c679b5e6fd0ebe"
