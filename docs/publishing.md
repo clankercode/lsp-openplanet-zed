@@ -35,7 +35,7 @@ Primary references checked 2026-10-19:
 
 ## Prepared human handoff
 
-A local branch `add-openplanet` in `/tmp/zed-openplanet-registry` contains the sorted registry entry and HTTPS submodule. Its manifest, license, extension ID/version and submodule-location validators pass. The exact registry packaging CLI has also produced `/tmp/zed-openplanet-package/archive.tar.gz` and `manifest.json` successfully. No registry fork, upstream comment or PR was created by the agent.
+A local branch `add-openplanet` in `/tmp/zed-openplanet-registry` (commit `813b6db`) contains the sorted registry entry and HTTPS submodule pinned to `6fd4e4a`. No registry fork, upstream comment or PR was created by the agent. The real registry CLI archive for that pin is `/tmp/zed-openplanet-real-package/archive.tar.gz`.
 
 To finish, a human who has reviewed and understands this extension can:
 
