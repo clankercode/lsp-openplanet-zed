@@ -1,6 +1,6 @@
 id = "openplanet"
 name = "Openplanet"
-version = "0.1.0"
+version = "0.1.1"
 schema_version = 1
 authors = ["clankercode"]
 description = "AngelScript and Openplanet plugin development with openplanet-lsp."

@@ -2,9 +2,9 @@
 
 Repository: https://github.com/clankercode/lsp-openplanet-zed
 
-Zed registry ID: `openplanet`; initial version: `0.1.0`.
+Zed registry ID: `openplanet`; current version: `0.1.1`.
 
-Status: local verification and the actual registry packaging CLI passed. Registry submission requires a human author under the venue's [AI policy](https://github.com/zed-industries/extensions/blob/main/AI_POLICY.md): **"Autonomous agents are not allowed to be used for contributing to this project."** It also requires the contributor to write the PR body in their own words. No upstream PR has been opened by this agent. A prepared local registry checkout and exact handoff are supplied to the coordinating human. This repository does not claim to be listed until an approved registry PR merges and Zed publishes it.
+Status: local verification and the actual registry packaging CLI passed. Registry submission requires a human author under the venue's [AI policy](https://github.com/zed-industries/extensions/blob/main/AI_POLICY.md): **"Autonomous agents are not allowed to be used for contributing to this project."** It also requires the contributor to write the PR body in their own words. No upstream PR has been opened by this agent. The reconstruction steps below provide the human handoff; temporary verification files from the initial implementation are no longer available. This repository does not claim to be listed until an approved registry PR merges and Zed publishes it.
 
 ## Release procedure
 
@@ -16,7 +16,7 @@ Status: local verification and the actual registry packaging CLI passed. Registr
    ```toml
    [openplanet]
    submodule = "extensions/openplanet"
-   version = "0.1.0"
+   version = "0.1.1"
    ```
 
 5. Run `pnpm sort-extensions`, run registry checks, push a dedicated branch, and open one PR for this extension. Include the exact commit, features, verification limits, and screenshot URL. The registry permits at most three open submissions per author.
@@ -35,15 +35,19 @@ Primary references checked 2026-10-19:
 
 ## Prepared human handoff
 
-A local branch `add-openplanet` in `/tmp/zed-openplanet-registry` (commit `813b6db`) contains the sorted registry entry and HTTPS submodule pinned to `6fd4e4a`. No registry fork, upstream comment or PR was created by the agent. The real registry CLI archive for that pin is `/tmp/zed-openplanet-real-package/archive.tar.gz`.
+The original temporary registry checkout and CLI archive from the 2026-10-19 verification are no longer present. Recreate the submission from the released `v0.1.1` source using the procedure above, pin its exact commit, and run the registry validators and real packager again before submitting. The recorded `6fd4e4a` pin is historical evidence, not the current release candidate. No registry fork, upstream comment, or PR was created by the agent.
 
 To finish, a human who has reviewed and understands this extension can:
 
 ```sh
-cd /tmp/zed-openplanet-registry
+cd /path/to/your/zed-extensions-checkout
 gh repo fork zed-industries/extensions --clone=false --remote=true
 # If needed, add the fork URL as a separate remote first.
 git push <your-fork-remote> add-openplanet
 ```
 
 Then open a PR against `zed-industries/extensions:main`, writing its title/body in your own words. Explain that this adds AngelScript/Openplanet language support, link the public extension repository, identify the submodule commit, and describe the verified Linux GUI/download behavior and untested operating systems. Do not copy agent prose into maintainer communication; their policy requires human-authored explanations. If this temporary checkout is no longer present, use the complete release procedure above.
+
+## GitHub source releases
+
+GitHub tags and releases provide versioned source and release notes. They do not submit the extension to Zed's registry. For a patch release, update `Cargo.toml`, `Cargo.lock`, and `extension.toml` together, add the changelog entry, run the documented checks, then tag the reviewed commit. Create the GitHub release with notes from `CHANGELOG.md`; Zed builds its distributable from the registry submodule after acceptance. This repository does not publish a raw WASM file as a standalone installable extension.

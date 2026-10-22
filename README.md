@@ -6,6 +6,8 @@ Native [Zed](https://zed.dev) support for Openplanet plugin development: AngelSc
 
 This is an actual Zed 1.24.2 window captured on Linux with Xvfb, showing two intentional errors in the original [smoke-test plugin](fixtures/plugin/Main.as). No diagnostics or editor UI were simulated.
 
+Current GitHub source release: [v0.1.1](https://github.com/clankercode/lsp-openplanet-zed/releases/tag/v0.1.1). See the [changelog](CHANGELOG.md). Registry availability is tracked separately below.
+
 ## Install
 
 Registry publication is submitted separately; see [publishing status](docs/publishing.md). Until accepted, clone this repository, install [Rust via rustup](https://rustup.rs), then run **zed: install dev extension** from Zed's command palette and choose this repository. Zed builds the Rust component and pinned Tree-sitter grammars. It downloads the current `wasm32-wasip2` Rust target and WASI SDK if needed.

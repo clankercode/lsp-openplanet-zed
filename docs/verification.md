@@ -54,3 +54,9 @@ Visual inspection of the full image and a zoomed text crop: readable type, visib
 - Completion, hover, references, rename, multiple-plugin workspace routing, were not individually exercised in the GUI. Offline cached startup has a regression test that fails with the original download-only behavior and passes with persistent cache fallback; a fresh Zed session was additionally run with HTTP_PROXY, HTTPS_PROXY and ALL_PROXY pointed at the closed loopback port `127.0.0.1:9`. It still launched the cached server and showed both diagnostics. This verifies a failed-proxy startup, not a machine-wide network namespace isolation test. They use the upstream server and Zed LSP support.
 - No claim of exhaustive AngelScript grammar coverage. The maintained grammar may recover imperfectly on Openplanet-specific syntax; semantic diagnostics belong to openplanet-lsp.
 - GitHub registry review/acceptance is separate from successful local validation. See publishing status.
+
+## Source release 0.1.1 — 2026-10-22
+
+Revalidated the release candidate locally on Linux x86-64: `cargo fmt --all -- --check`, `cargo test --locked -j 2` (13 passing tests), `python3 -m unittest tests/test_package_notices.py` (6 passing tests), `cargo clippy --locked --all-targets -j 2 -- -D warnings`, and `cargo build --locked --release --target wasm32-wasip2 -j 2` all pass. The component is a real WASI build. Cargo, lockfile, and Zed manifest versions agree at 0.1.1.
+
+This is a GitHub source release with the packaging corrections already verified above. The earlier temporary registry CLI, checkout, and packaged archive have been cleaned from `/tmp`; that historical native-package check was not rerun for this metadata-only release. The screenshot and real editor observations above were captured on 2026-10-19, not recaptured for this tag. Human registry submission must reconstruct and validate a package from the tagged source before publication.
